@@ -20,8 +20,35 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
+
 fbq('init', '1356915392738345');
+
+// Cette page EST ta page produit — donc ViewContent
+// se déclenche simplement au chargement, pas besoin
+// de détecter une URL.
 fbq('track', 'PageView');
+fbq('track', 'ViewContent', {
+  content_name: 'Pack Génie Civil & Architecture et BTP',
+  content_type: 'product',
+  value: 5000,
+  currency: 'XOF'
+});
+
+// InitiateCheckout au clic sur "Obtenir mon accès"
+// (les 2 boutons de la page pointent vers le même lien checkout)
+document.addEventListener('DOMContentLoaded', function() {
+  var buttons = document.querySelectorAll('a[href*="mymaketou.shop"]');
+  buttons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      fbq('track', 'InitiateCheckout', {
+        content_name: 'Pack Génie Civil & Architecture et BTP',
+        content_type: 'product',
+        value: 5000,
+        currency: 'XOF'
+      });
+    });
+  });
+});
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1356915392738345&ev=PageView&noscript=1"
