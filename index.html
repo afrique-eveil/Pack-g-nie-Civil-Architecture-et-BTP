@@ -311,6 +311,74 @@ src="https://www.facebook.com/tr?id=1356915392738345&ev=PageView&noscript=1"
   .promo-bar strong{font-weight:700;}
   .promo-timer{
     font-weight:700; background:rgba(0,0,0,0.14); padding:2px 8px; border-radius:3px; letter-spacing:0.04em;
+    /* --- Stock animé --- */
+.stock-container {
+  width: 100%;
+  margin-bottom: 28px;
+  font-family: 'Inter', sans-serif;
+}
+
+.stock-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.stock-header strong {
+  font-weight: 500;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 14px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 100%;
+  height: 100%;
+  background: #16a34a;
+  border-radius: 10px;
+  animation: stockAnimation 9s ease-in-out forwards;
+}
+
+.limited-offer {
+  margin-top: 7px;
+  font-size: 13px;
+  color: #ed002f;
+}
+
+@keyframes stockAnimation {
+
+  /* Départ */
+  0% {
+    width: 100%;
+    background: #16a34a;
+  }
+
+  /* Jusqu'à 50% : vert */
+  49% {
+    width: 50%;
+    background: #16a34a;
+  }
+
+  /* Passage au rouge à 50% */
+  50% {
+    width: 50%;
+    background: #ed002f;
+  }
+
+  /* Fin */
+  100% {
+    width: 6.14%;
+    background: #ed002f;
+  }
+}
   }
 
   /* --- WhatsApp floating button --- */
@@ -616,11 +684,35 @@ src="https://www.facebook.com/tr?id=1356915392738345&ev=PageView&noscript=1"
       </ul>
       <div class="offer-total"><span>Valeur totale estimée</span><span class="v">29 900 FCFA</span></div>
       <div class="offer-price">
-        <div class="price">5 000 <span>FCFA</span></div>
-        <div class="sub">PRIX DE LANCEMENT — SE TERMINE DANS <span class="promo-timer">24:00:00</span></div>
-        <a class="btn-primary" href="https://elite-mindset.mymaketou.shop/products/pack-genie-civil-architecture-et-btp/checkout" style="width:100%; justify-content:center;">Acheter maintenant →</a>
-        <div class="guarantee mono">🔒 Paiement sécurisé · Garantie 7 jours</div>
-      </div>
+
+  <div class="stock-container">
+    <div class="stock-header">
+      <span>Vendu: <strong>3473</strong></span>
+      <span>Restant: <strong>227</strong></span>
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+
+    <div class="limited-offer">Offre à durée limitée</div>
+  </div>
+
+  <div class="price">5 000 <span>FCFA</span></div>
+
+  <div class="sub">
+    PRIX DE LANCEMENT — SE TERMINE DANS 
+    <span class="promo-timer">24:00:00</span>
+  </div>
+
+  <a class="btn-primary" href="https://elite-mindset.mymaketou.shop/products/pack-genie-civil-architecture-et-btp/checkout" style="width:100%; justify-content:center;">
+    Acheter maintenant →
+  </a>
+
+  <div class="guarantee mono">
+    🔒 Paiement sécurisé · Garantie 7 jours
+  </div>
+</div>
     </div>
   </div>
 </section>
